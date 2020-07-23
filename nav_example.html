@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+    <title>InSense | Sense of Elegance</title>
+    <style>
+        /* color */
+        :root {
+            --primary: #6381a8;
+            --secondary: #e2dac9;
+            --main-icon: #555555;
+            --main-icon-origin: #f5f5f5;
+        }
+
+        /* general */
+        .list-unstyled {
+            list-style: none;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .w-100 {
+            width: 150px;
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .align-items-end {
+            align-items: flex-end;
+        }
+
+        .justify-content-start {
+            justify-content: flex-start
+        }
+
+        /* .justify-content-end {
+            justify-content: flex-end
+        } */
+
+        .justify-content-center {
+            justify-content: center;
+        }
+
+        .flex-direction-column {
+            flex-direction: column;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        .position-absolute {
+            position: absolute;
+        }
+
+        .position-fixed {
+            position: fixed;
+        }
+
+        /* customized */
+        /* header */
+        /* nav bar */
+        .nav-bar {
+            width: 100%;
+            z-index: 1;
+        }
+
+        .nav-bar ul {
+            height: 60px;
+            padding: 0 12px;
+            background-color: var(--secondary);
+            margin: 0;
+            transition: .3s;
+        }
+
+        .main-icon a {
+            cursor: pointer;
+            display: block;
+            padding: 4px 5px;
+            margin: 0 10px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .main-icon a:hover i {
+            opacity: .6
+        }
+
+        .main-icon i {
+            font-size: 18px;
+            color: var(--main-icon-origin);
+        }
+
+        .nav-bar ul .main-icon i {
+            color: var(--main-icon);
+        }
+
+        .home-logo {
+            flex-grow: 1;
+            text-align: center;
+            /* background-color: #ccc; */
+        }
+
+        .home-logo span {
+            color: var(--main-icon-origin);
+            font-size: 28px;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .nav-bar ul .home-logo span {
+            color: var(--main-icon);
+        }
+
+        .shopping-cart {
+            margin: 0 50px 0 0
+        }
+
+        /* header */
+        /* side menu */
+        .side-menu {
+            width: 288px;
+            height: 100vh;
+            z-index: 1;
+            background-color: #eee;
+            /* opacity: .5; */
+            transform: translateX(-100%);
+            transition: .3s;
+        }
+
+        .side-menu.active {
+            transform: translateX(0);
+        }
+
+        .side-menu h3 {
+            font-size: 16px;
+            margin: 20px 0px 50px 32px;
+        }
+
+        .side-menu .cross {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .side-menu ul {
+            /* padding: 0; */
+        }
+
+        .side-menu ul li {
+            margin: 24px 36px;
+        }
+
+        .side-menu ul li a {
+            display: flex;
+            width: 100px;
+            text-decoration: none;
+            color: #555555;
+        }
+
+        .side-menu ul li a p {
+            text-align: center;
+            width: 0;
+            margin: 0;
+            opacity: 0;
+            transition: .3s;
+            font-size: 12px;
+            color: #555555;
+        }
+
+        .side-menu ul li a:hover p {
+            width: 8px;
+            opacity: 1;
+            margin: 0 10px;
+        }
+
+        .side-menu ul li.about-us {
+            margin-top: 200px;
+        }
+
+        /* main slide */
+        /* main picture */
+        .main-picture figure {
+            margin: 0;
+            height: 56vw;
+        }
+
+        .main-picture figure img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: bottom
+        }
+
+        /* main slide */
+        /* main slogan */
+        .main-slogan {
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(200, 200, 200, .5);
+        }
+
+        .main-slogan h1 {
+            width: 500px;
+            text-align: center;
+        }
+
+        .slogan1 {
+            margin: 270px auto 0;
+        }
+
+        .slogan2 {
+            margin: 30px auto 0;
+        }
+
+        .discover {
+            cursor: pointer;
+            bottom: 200px;
+            margin: 30px auto;
+            width: 200px;
+        }
+
+        .discover:hover {
+            color: #777777;
+        }
+
+        .discover p {
+            margin: 10px 0;
+        }
+
+        /* main */
+        /* 測試用 */
+        main {
+            height: 300vh;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="nav-bar position-fixed">
+            <ul class="list-unstyled d-flex align-items-center">
+                <li class="d-flex w-100 justify-content-start">
+                    <div class="main-icon">
+                        <a id="burger-menu"><i class="fas fa-bars"></i></a>
+                    </div>
+                    <div class="main-icon">
+                        <a href=""><i class="fas fa-search"></i></a>
+                    </div>
+                </li>
+                <li class="home-logo"><span>InSense</span></li>
+                <li class="d-flex w-100 justify-content-end">
+                    <div class="main-icon">
+                        <a href=""><i class="far fa-user"></i></a>
+                    </div>
+                    <div class="main-icon shopping-cart">
+                        <a href=""><i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="side-menu position-fixed">
+            <div class="d-flex align-items-center">
+                <h3 class="cross"><i class="fas fa-times"></i></h3>
+                <h3>Menu</h3>
+            </div>
+            <ul class="list-unstyled">
+                <li><a class="align-items-center" href=""><span>代理品牌</span>
+                        <p><i class="fas fa-chevron-right"></i></p>
+                    </a></li>
+                <li><a class="align-items-center" href=""><span>身體保養</span>
+                        <p><i class="fas fa-chevron-right"></i></p>
+                    </a></li>
+                <li><a class="align-items-center" href=""><span>個人香氛</span>
+                        <p><i class="fas fa-chevron-right"></i></p>
+                    </a></li>
+                <li><a class="align-items-center" href=""><span>居家生活</span>
+                        <p><i class="fas fa-chevron-right"></i></p>
+                    </a></li>
+                <li><a class="align-items-center" href=""><span>尋找禮物</span>
+                        <p><i class="fas fa-chevron-right"></i></p>
+                    </a></li>
+                <li><a class="align-items-center" href=""><span>體驗課程</span>
+                        <p><i class="fas fa-chevron-right"></i></p>
+                    </a></li>
+                <li class="about-us"><a class="align-items-center" href="">
+                        <p><i class="fas fa-chevron-right"></i></p>
+                        <span>關於我們</span>
+                    </a></li>
+                <li><a class="align-items-center" href="">
+                        <p><i class="fas fa-chevron-right"></i></p>
+                        <span>幫助中心</span>
+                    </a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+
+    </main>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        let sideMenuStatus = true
+
+        $(window).scroll(function () {
+            let scrollTop = $(this).scrollTop()
+            console.log(scrollTop)
+            if (scrollTop > 0) {
+                $(".nav-bar ul").addClass("scroll-down")
+            } else {
+                $(".nav-bar ul").removeClass("scroll-down")
+            }
+        })
+
+        //side menu
+        // $("#burger-menu").click(function () {
+        //     $(".side-menu").addClass("active")
+        //     sideMenuStatus = true
+        // })
+
+        document.getElementById('burger-menu').addEventListener('click', function () {
+            $(".side-menu").addClass("active")
+            sideMenuStatus = true
+
+        })
+
+        $(".cross").click(function () {
+            $(".side-menu").removeClass("active")
+            sideMenuStatus = true
+        })
+
+        $(".side-menu").on("mouseleave", function () {
+            sideMenuStatus = false
+        })
+
+        document.querySelector('.side-menu').addEventListener("mouseenter", function () {
+            sideMenuStatus = true
+        })
+
+        $(document).on("click", function () {
+            if (sideMenuStatus == false) {
+                $(".side-menu").removeClass("active")
+            }
+            // sideMenuStatus = true
+        })
+
+        //side menu 的 arrow 動畫
+        $(".side-menu ul li a").hover(function () {
+            console.log(0)
+            $(this).find("p").addClass("arrow-active")
+        }, function () {
+            $(this).find("p").removeClass("arrow-active")
+        })
+
+
+    </script>
+</body>
+
+</html>
